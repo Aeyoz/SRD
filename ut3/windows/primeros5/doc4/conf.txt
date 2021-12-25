@@ -1,0 +1,1 @@
+openssl req -config c:\openssl\bin\openssl.cnf -new

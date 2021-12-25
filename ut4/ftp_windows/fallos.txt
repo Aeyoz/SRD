@@ -1,0 +1,6 @@
+1.- Fillezilla activado
+2.- Creación del sitio con un certificado autofirmado (hay que crearlo sin este)
+3.- Reglas de autorización mal establecidas (Autenticación FTP anónima activada)
+4.- Los sitios FTP no funcionan desde el navegador EDGE
+5.- El tercer sitio requiere de un correo para entrar y no acepta ninguna variante de correo (ni siquiera los correos del propio dominio (pepe@diaz28.dom))
+

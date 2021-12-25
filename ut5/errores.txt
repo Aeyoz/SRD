@@ -1,0 +1,1 @@
+1.- Error de red al enviar correos, pero las maquinas hacen conexion entre ella y la maquina cliente identifica el host www.mail.w3progrmforu.com
