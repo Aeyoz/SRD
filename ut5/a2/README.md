@@ -1,7 +1,7 @@
 
 <center>
 
-# TÍTULO DE LA PRÁCTICA
+# Instalación de cliente de Correo en Linux
 
 
 </center>
