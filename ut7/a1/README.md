@@ -11,11 +11,8 @@
 ### ÍNDICE
 
 + [Instalación](#id1)
-+ [](#id2)
-+ [](#id3)
-+ [](#id4)
-+ [](#id5)
-
++ [Comprobar](#id2)
++ [Carpeta personalizada](#id3)
 
 #### ***Instalación***. <a name="id1"></a>
 
