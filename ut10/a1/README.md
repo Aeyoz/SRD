@@ -1,115 +1,248 @@
-
-<center>
-
-# Instalación de servidor VoIP en Linux: FreePBX
-
-</center>
+# Instalación y configuración de un Servidor de VoIP sobre Windows 2016
 
 ---
 
-Trabajo realizado por: Ángel David González y Ayoze Hernández.
-
-Curso: Administración de Sistemas Informáticos en Redes.
+## Trabajo realizado por Ayoze Hernández y Ángel David González Quintana
 
 ---
 
-### ÍNDICE
-
-+ [Instalación](#id1)
-+ [Configuración](#id2)
-+ [Creación de usuarios](#id3)
-+ [Conexión entre dispositivos](#id4)
+## Índice
 
 
+* [1. Registro e instalación de 3CX Phone System](#1)
 
-#### ***Instalación***. <a name="id1"></a>
+* [2. Configuración del servidor](#2)
 
-Empezamos instalando la ISO de [FreePBX](https://www.freepbx.org/) e instalandola.
+* [3. Instalación de 3CX Phone en el cliente y servidor](#3)
 
-![](./img/001.png)
+* [4. Creación de usuarios](#4)
 
-![](./img/002.png)
+* [5. Vinculaciones](#5)
 
-Debemos establecer una contraseña para el root. (Por motivos de seguridad no se muestra).
+* [ANEXO. Errores o problemas](#6)
 
-![](./img/004.png)
+---
 
-Una vez añadimos la contraseña se instalan los componentes necesarios.
+### 1. Registro e instalación de 3CX Phone System <a id="1"></a>
 
-![](./img/005.png)
+Antes de empezar con esta práctica, vamos a necesitar las siguientes MVs:
 
-#### ***Configuración***. <a name="id2"></a>
+* Servidor 3CX Phone System -> Windows Server 2016
 
-Accedemos a la página de configuración web de FreePBX mediante la IP de la máquina en cuestión.
+* Cliente 3CX Phone -> Windows 7
 
-![](./img/006.png)
+* Cliente 3CX -> Dispositivo móvil
 
-Ahora procedemos a configurar el servidor con opciones por defecto.
+Para empezar con esta práctica, abriremos la MV de Windows Server y nos registramos en [3CX](https://www.3cx.es):
 
-![](./img/007.png)
+![](./img/01.png)
 
-Aquí debemos añadir nuestros datos de contacto (Pueden ser inventados).
+Luego nos logueamos y tendremos que completar la cuenta. Para ello, rellenamos los siguientes datos:
 
-![](./img/008.png)
+* **Tipo de cuenta:** Personal
 
-Activamos el servidor con el comando: fwconsole sysadmin activate **clave**; la clave se nos proporciona al hacer click en "Activate".
+* **País/Provincia:** Nuestra localización.
 
-![](./img/009.png)
+* **Información de contacto:** Nuestros datos.
 
-Ya el resto de opciones que viene son por defecto por lo que no hay mucho que explicar de ellas.
+* **Contraseña:** Ponemos la que queramos.
 
-![](./img/011.png)
+  ![](./img/02.png)
 
-![](./img/012.png)
+Una vez completa la información necesaria para nuestra cuenta, vamos a descargar el instalador. Para ello, vamos a `Mi Suscripción -> First Configuration -> On- Premise`:
 
-![](./img/013.png)
+![](./img/03.png)
 
-![](./img/014.png)
+Cambiamos el nombre de dominio sugerido:
 
-![](./img/015.png)
+![](./img/04.png)
 
-![](./img/016.png)
+Y seleccionamos la instalación para Windows:
 
-![](./img/017.png)
+![](./img/05.png)
 
-#### ***Creación de usuarios***. <a name="id3"></a>
+Una vez descargado el instalador, lo ejecutamos y procedemos con los pasos de instalación:
 
-Para añadir un usuario debemos ir a **Applications>Extensions>Add-Extension**.
+* **Requisitos:** Solo nos dirá que requisitos necesitamos para instalar 3CX Phone System, por lo que seguimos:
 
-![](./img/018.png)
+  ![](./img/06.png)
 
-En la sección general añadimos los datos personales del usuario además de la contraseña e identificadores. Además podemos elegir entre 2 idiomas para el usuario.
+* **Recomendaciones:** Solo nos recomendará algunas acciones, por lo que seguimos:
 
-![](./img/021.png)
+  ![](./img/07.png)
 
-En la sección avanzada debemos de cambiar la sección DTMF Signaling a automática.
+* **Términos de licencia:** Leemos y aceptamos:
 
-![](./img/020.png)
+  ![](./img/08.png)
 
-Añadimos otro usuario de la misma manera.
+* **Directorio de instalación:** Seleccionamos la ruta de instalación que queramos, aunque lo podemos dejar por defecto:
 
-![](./img/022.png)
+  ![](./img/09.png)
 
-#### ***Conexión entre dispositivos***. <a name="id4"></a>
+Una vez realizados los pasos, el servicio se instalará:
 
-Instalamos la aplicación de móvil e intentamos conectarnos con el servidor VoIP y vemos que nos reconoce el servicio SIP UDP.
+![](./img/10.png)
 
-![](./img/conexion1.jpeg)
+---
 
-Conectamos una cuenta.
+### 2. Configuración del servidor <a id="2"></a>
 
-![](./img/conexion2.jpeg)
+Una vez instalado, se abrirá la siguiente interfaz de texto con dos opciones de realizar la configuración, seleccionamos la opción de configuración a través del navegador web:
 
-Llamamos a la otra cuenta.
+![](./img/16.png)
 
-![](./img/conexion3.jpeg)
+Se abrirá una página con la instalación y configuración del servidor, por lo que seguiremos los siguientes pasos:
 
-Comprobamos que recibe la llamada desde otro dispositivo y que suena a continuación.
+* **Tipo de instalación:** Crear una nueva instalación del Sistema Telefónico 3CX (Ponemos la clave de licencia en nuestro perfil `My subscription` en 3CX):
 
-![](./img/conexion4.jpeg)
+  ![](./img/17.png)
 
-![](./img/conexion5.jpeg)
+* **Credenciales de la consola de administración 3CX:** Ponemos usuario y contraseña:
 
-Vemos que con exito se ha realizado la llamada.
+  ![](./img/18.png)
 
-![](./img/conexion6.jpeg)
+* **Dirección IP Pública:** Seleccionamos la primera opción:
+
+  ![](./img/19.png)
+
+* **Tipo de IP Pública:** Estática:
+
+  ![](./img/20.png)
+
+* **Selección de puertos:** Lo dejamos por defecto:
+
+  ![](./img/21.png)
+
+* **Adaptador de red:** Seleccionamos el único que tenemos.
+
+* **FQDN:** Pondremos nuestro FQDN o dominio.
+
+  ![](./img/22.png)
+
+  ![](./img/23.png)
+
+* **Longuitud de las extensiones:** 3 Dígitos:
+
+  ![](./img/24.png)
+
+* **Email del administrador:** Ponemos nuestro correo:
+
+  ![](./img/25.png)
+
+* **País y Zona Horaria:** Ponemos nuestros datos:
+
+  ![](./img/26.png)
+
+* **Extensión del operador:** Creamos un usuario operador:
+
+  ![](./img/27.png)
+
+* **Países a los que puede llamar:** Europa:
+
+  ![](./img/28.png)
+
+* **Idioma:** Spanish Prompts Set:
+
+  ![](./img/29.png)
+
+* **Información de Registro:** Ponemos nuestros datos (El ID de Partner es opcional)
+
+  ![](./img/30.png)
+
+Finalmente ya tendríamos 3CX instalado y configurado:
+
+![](./img/32.png)
+
+---
+
+### 3. Instalación de 3CX Phone en el cliente y servidor <a id="3"></a>
+
+Ahora tanto en el servidor como en el cliente Windows, realizaremos la siguiente instalación.
+
+Vamos a la página de [3CX Softphone](https://www.3cx.es/voip-telefono/softphone/) y descargamos el instalador:
+
+![](./img/11.png)
+
+Una vez descargado, lo ejecutamos y seguiremos los siguientes pasos de instalación:
+
+* **Bienvenida:** Nos dará la bienvenida. Seguimos:
+
+  ![](./img/12.png)
+
+* **Términos de licencia:** Las leemos y aceptamos:
+
+  ![](./img/13.png)
+
+* **Directorio de instalación:** Seleccionamos la ruta de instalación:
+
+  ![](./img/14.png)
+
+Finalmente se instalará y se abrirá la siguiente interfaz. Lo dejamos como está:
+
+![](./img/15.png)
+
+---
+
+### 4. Creación de usuarios <a id="4"></a>
+
+Ahora accedemos al enlace que nos sale al finalizar la configuración del servidor 3CX Phone System y nos logueamos:
+
+![](./img/33.png)
+
+Nos saldrá un código QR de instalación de 3CX para dispositivos móviles:
+
+![](./img/34.png)
+
+Crearemos 3 usuarios con los datos que queramos:
+
+![](./img/35.png)
+
+Y debería quedar así:
+
+![](./img/36.png)
+
+---
+
+### 5. Vinculaciones <a id="5"></a>
+
+Primero vinculamos el teléfono del servidor, para ello, le damos a `Auto Provision` y en `Teléfonos` nos saldrá el intento de acceso, lo seleccionamos y le damos a `Asignar Ext`:
+
+![](./img/37.png)
+
+Seleccionamos el usuario:
+
+![](./img/38.png)
+
+Le damos en `Aceptar`:
+
+![](./img/39.png)
+
+Y el teléfono del servidor ya estaría vinculado al usuario operador:
+
+![](./img/40.png)
+
+Comprobamos que el usuario vinculado está operativo:
+
+![](./img/41.png)
+
+Ahora vinculamos el teléfono cliente, para ello, le damos `Auto Provision` y en `Teléfonos` nos saldrá el intento de acceso, lo seleccionamos y le damos a `Asignar Ext`:
+
+![](./img/42.png)
+
+Seleccionamos el usuario:
+
+![](./img/43.png)
+
+Aceptamos y el teléfono del cliente ya estaría vinculado al usuario. Comprobamos que el usuario vinculado está operativo:
+
+![](./img/44.png)
+
+Finalmente podemos marcar la extensión de un teléfono a otro y podemos llamar correctamente.
+
+---
+
+### ANEXO. Errores o problemas <a id="6"></a>
+
+No he podido realizar capturas de las llamadas debido a que el servidor no me permite acceder a la página web de administración, supongo a que tenía la dirección IP dinámica y este perdió la señal. Pero pude realizar las llamadas cuando hice la práctica y funcionaban.
+
+Intenté acceder al usuario **Salva** desde mi teléfono móvil pero el código QR no funcionaba y manualmente tampoco.
