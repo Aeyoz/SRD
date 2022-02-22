@@ -9,15 +9,17 @@
 
 Trabajo realizado por: Ángel David González y Ayoze Hernández.
 
+Curso: Administración de Sistemas Informáticos en Redes.
+
 ---
 
 ### ÍNDICE
 
 + [Instalación](#id1)
 + [Configuración](#id2)
-+ [Material empleado](#id3)
-+ [Desarrollo](#id4)
-+ [Conclusiones](#id5)
++ [Creación de usuarios](#id3)
++ [Conexión entre dispositivos](#id4)
+
 
 
 #### ***Instalación***. <a name="id1"></a>
