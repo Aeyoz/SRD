@@ -1,4 +1,0 @@
-ENTREGA DE LA PRÁCTICA DE SERVIDOR VOIP
-
-
-https://github.com/ElPayo/SRD/blob/32c8aa168c07d66f0fcaf96d559913949fcc760a/ut10/a1/README.md
